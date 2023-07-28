@@ -6,16 +6,16 @@ import { motion } from 'framer-motion'
 import right from '../assets/right.png' 
 
 const Navbar = ({page}) => {
-  if (page==='home'){
+  if (page==='start'){
     return (
       <motion.div
-      className='nav-home'
+      className='nav-start'
         initial={{transform: 'translateY(100%)' }}
         animate={{
           transform: 'translateY(-25%)',
           
         }}
-        exit={{ opacity: 0, transform: 'translateY(-100%)' }}
+        exit={{ opacity: 0, transform: 'translateY(100%)' }}
       >
         <div className="content">
           <div className="head">
@@ -29,9 +29,9 @@ const Navbar = ({page}) => {
           </div>
 
           <div>
-            <Link to='/account' >
+            <Link to='/home' >
               <div className="btn">
-                Create an Account
+                Start your journey
               </div>
             </Link>
             {/* <div className="rightarr">
@@ -41,7 +41,7 @@ const Navbar = ({page}) => {
 
           <Link to='/account' >
             <div className="already">
-              Already have an account ?
+             Create an account
             </div>    
           </Link>
 
@@ -49,20 +49,64 @@ const Navbar = ({page}) => {
       </motion.div>
     )
   }
+  else if (page==='home'){
+    return (
+      <motion.div
+      className='nav-home'
+        initial={{transform: 'translateY(100%)' }}
+        animate={{
+          transform: 'translateY(0)',
+          
+        }}
+        exit={{ opacity: 0, transform: 'translateY(-100%)' }}
+      >
+        <div className="content">
+          <div className="search">
+            <div className="left">
+              <input type="text" placeholder='Search a place' />
+            </div>
+            <div className="right">
+              <span className="material-symbols-outlined">search</span>
+            </div>
+          </div>
+          <div className="icons">
+            <Link to={'/home'} >
+              <span className="material-symbols-outlined">home</span>
+            </Link>
+            <Link to={'/explore'} >
+              <span className="material-symbols-outlined">explore</span>
+            </Link>
+            <Link to={'/plan'} >
+              <span className="material-symbols-outlined">location_on</span>
+            </Link>
+            <Link to={'/account'} >
+              <span className="material-symbols-outlined">person</span>
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
   else if (page==='explore'){
     return (
       <motion.div
-        className='nav-home'
+        className='nav-explore'
         initial={{ transform: 'translateY(100%)' }}
         animate={{
-          transform: 'translateY(-20%)',
+          transform: 'translateY(0)',
 
         }}
         exit={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
         <div className="content">
-          Explore
-          <Link to='/' >Home</Link>
+          <div className="search">
+            <div className="left">
+              <input type="text" placeholder='Search a place' />
+            </div>
+            <div className="right">
+              <span className="material-symbols-outlined">search</span>
+            </div>
+          </div>
         </div>
       </motion.div>
     )
@@ -70,17 +114,23 @@ const Navbar = ({page}) => {
   else if (page==='plan'){
     return (
       <motion.div
-        className='nav-home'
-        initial={{ transform: 'translateY(100%)' }}
+      className='nav-home'
+        initial={{transform: 'translateY(100%)' }}
         animate={{
-          transform: 'translateY(-20%)',
-
+          transform: 'translateY(0)',
+          
         }}
         exit={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
         <div className="content">
-          Explore
-          <Link to='/' >Home</Link>
+          <div className="search">
+            <div className="left">
+              <input type="text" placeholder='Search a place' />
+            </div>
+            <div className="right">
+              <span className="material-symbols-outlined">search</span>
+            </div>
+          </div>
         </div>
       </motion.div>
     )
@@ -88,17 +138,29 @@ const Navbar = ({page}) => {
   else if (page==='account'){
     return (
       <motion.div
-        className='nav-home'
-        initial={{ transform: 'translateY(100%)' }}
+      className='nav-home'
+        initial={{transform: 'translateY(100%)' }}
         animate={{
-          transform: 'translateY(-20%)',
-
+          transform: 'translateY(0)',
+          
         }}
         exit={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
         <div className="content">
-          Explore
-          <Link to='/' >Home</Link>
+          <div className="icons">
+            <Link to={'/home'} >
+              <span className="material-symbols-outlined">home</span>
+            </Link>
+            <Link to={'/explore'} >
+              <span className="material-symbols-outlined">explore</span>
+            </Link>
+            <Link to={'/plan'} >
+              <span className="material-symbols-outlined">location_on</span>
+            </Link>
+            <Link to={'/account'} >
+              <span className="material-symbols-outlined">person</span>
+            </Link>
+          </div>
         </div>
       </motion.div>
     )

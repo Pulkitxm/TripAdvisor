@@ -6,7 +6,7 @@ import logo from '../assets/logo.png'
 
 const Start = () => {
     return (
-        <div className='home' >
+        <div className='start' >
             <div className="top-logo">
                 <div className="content">
                     <img src={logo} alt="" draggable='false' />
@@ -14,7 +14,7 @@ const Start = () => {
                     TripPlanner
                 </div>
             </div>
-            <Navbar page={'home'} />
+            <Navbar page={'start'} />
 
         </div>
     )

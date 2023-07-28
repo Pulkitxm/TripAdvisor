@@ -1,0 +1,48 @@
+.ham{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    z-index: 2;
+}
+.ham .btn{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+
+.offcanvas{
+    z-index: 100;
+    background: rgba(0, 0, 0, .8);
+    color: #fff;
+}
+
+.close-button{
+    color: #fff;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.ham .offcanvas .offcanvas-body {
+    transition: 2s;
+}
+.ham .offcanvas .offcanvas-body ul{
+    list-style: none;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ham .offcanvas .offcanvas-body ul li a{
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.ham .offcanvas .offcanvas-body ul li a{
+    color: rgba(255, 255, 255, .9)
+}

@@ -21,7 +21,7 @@ const Explore = () => {
           TripPlanner
         </div>
       </div>
-      <Navbar page={'home'} />
+      <Navbar page={'explore'} />
 
     </div>
   )

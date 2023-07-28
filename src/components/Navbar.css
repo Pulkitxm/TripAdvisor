@@ -1,15 +1,15 @@
-.nav-home{
+.nav-start {
     margin: 0 auto;
     display: block;
     height: 19em;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     bottom: 0;
     transition: 1s;
 }
 
-.nav-home .content{
+.nav-start .content {
     margin: auto;
     display: block;
     height: 100%;
@@ -26,20 +26,20 @@
     justify-content: center;
 }
 
-.nav-home .content .head{
+.nav-start .content .head {
     font-size: 1.5em;
     text-align: center;
     margin-bottom: .7em;
 }
 
-.nav-home .content .sub-head{
+.nav-start .content .sub-head {
     font-size: 1em;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     margin-bottom: .2em;
 }
 
-.nav-home .content .already{
+.nav-start .content .already {
     font-size: 1em;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
@@ -47,11 +47,11 @@
     text-decoration: underline;
 }
 
-.nav-home .content .already:hover{
+.nav-start .content .already:hover {
     color: rgba(255, 255, 255, 1);
 }
 
-.nav-home .content div a .btn{
+.nav-start .content div a .btn {
     margin: 2em auto;
     width: 15em;
     height: 4em;
@@ -65,38 +65,172 @@
     cursor: pointer;
 }
 
-.nav-home .content div   .rightarr{
+.nav-start .content div .rightarr {
     display: inline;
 }
 
-.nav-home .content div  .rightarr img{
+.nav-start .content div .rightarr img {
     width: 1em;
 }
 
-.nav-home .content div a .btn:hover{
+.nav-start .content div a .btn:hover {
     background-color: #c5c5c5;
 }
 
-.nav-explore{
+.nav-home {
     margin: 0 auto;
     display: block;
     height: 10em;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 1;
-    bottom: 20px;
+    bottom: 0;
     transition: 1s;
 }
 
-.nav-explore .content{
+.nav-home .content {
     margin: auto;
     display: block;
     height: 100%;
-    width: 90%;
-    background-color: #000;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
     color: #fff;
     z-index: 1;
     bottom: 0;
-    border-radius: 30px 30px 0 0 ;
+    border-radius: 40px 40px 0 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
+.nav-home .content .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-home .content .search .left {
+    background: rgb(94, 94, 94);
+    height: 3em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+}
+
+.nav-home .content .search .left input {
+    background: transparent;
+    border: 0;
+    user-select: none;
+    color: #fff;
+    outline: none;
+}
+
+.nav-home .content .search .right {
+    background: rgb(94, 94, 94);
+    height: 3em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+    padding: 10px;
+}
+
+.nav-home .content .search .right span {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.nav-home .content .search .right span:hover {
+    opacity: 1;
+}
+
+
+.nav-home .content .icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-home .content .icons span{
+    transform: scale(1.5);
+    opacity: .7;
+    color: #fff;
+}
+.nav-home .content .icons span:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+.nav-explore {
+    margin: 0 auto;
+    display: block;
+    height: 7em;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    transition: 1s;
+}
+
+.nav-explore .content {
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-explore .content .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-explore .content .search .left {
+    background: rgb(94, 94, 94);
+    height: 3em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 0 0 10px;
+    padding: 10px;
+}
+
+.nav-explore .content .search .left input {
+    background: transparent;
+    border: 0;
+    user-select: none;
+    color: #fff;
+    outline: none;
+}
+
+.nav-explore .content .search .right {
+    background: rgb(94, 94, 94);
+    height: 3em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+    padding: 10px;
+}
+
+.nav-explore .content .search .right span {
+    opacity: .6;
+    cursor: pointer;
+}
+
+.nav-explore .content .search .right span:hover {
+    opacity: 1;
+}

@@ -10,12 +10,14 @@ import Explore from './pages/Explore'
 import PlanATrip from './pages/PlanATrip'
 import Account from './pages/Account'
 import NotFound from './pages/NotFound'
+import Ham from './components/Ham'
 
 
 const App = () => {
   return (
     <div className='main' >
       <Router>
+        <Ham/>
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/home" element={<Home />} />
