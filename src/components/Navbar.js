@@ -138,15 +138,23 @@ const Navbar = ({page}) => {
   else if (page==='account'){
     return (
       <motion.div
-      className='nav-home'
-        initial={{transform: 'translateY(100%)' }}
+        className='nav-home'
+        initial={{ transform: 'translateY(100%)' }}
         animate={{
           transform: 'translateY(0)',
-          
+
         }}
         exit={{ opacity: 0, transform: 'translateY(-100%)' }}
       >
         <div className="content">
+          <div className="search">
+            <div className="left">
+              <input type="text" placeholder='Search a place' />
+            </div>
+            <div className="right">
+              <span className="material-symbols-outlined">search</span>
+            </div>
+          </div>
           <div className="icons">
             <Link to={'/home'} >
               <span className="material-symbols-outlined">home</span>

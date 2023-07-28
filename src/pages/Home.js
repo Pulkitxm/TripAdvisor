@@ -82,7 +82,7 @@ const Home = () => {
           <Card_lg img={reef} text1={"The Great Barrier Reef"} text2={"Queensland, Australia"} />
         </div>
       </div>
-
+      <div className='whitespace' style={{ height: '10em', width:'100vw'}} >a</div>
       <Navbar page={'home'} />
     </div>
   );

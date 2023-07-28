@@ -180,7 +180,7 @@
     display: block;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(20, 3, 3);
     color: #fff;
     z-index: 1;
     bottom: 0;

@@ -1,0 +1,20 @@
+.account{
+    height: 100vh;   
+    width: 100vw;
+}
+.account .main{
+    height: 100vh;   
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account .main .login{
+    width: 150px;
+    height: 70px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}

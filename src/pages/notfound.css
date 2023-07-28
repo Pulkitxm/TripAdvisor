@@ -1,0 +1,40 @@
+.not-found-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.not-found-heading {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.not-found-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.not-found-image {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    mix-blend-mode: multiply;
+}
+
+.not-found-back-link {
+    font-size: 16px;
+}
+
+.not-found-back-link a {
+    color: blue;
+    text-decoration: none;
+}
+
+.not-found-back-link a:hover {
+    text-decoration: underline;
+}

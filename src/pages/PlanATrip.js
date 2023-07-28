@@ -1,30 +1,48 @@
-import React from 'react'
-import './Home.css'
 import Navbar from '../components/Navbar'
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Plan.css"; // Import the CSS file
 
-import logo from '../assets/logo.png'
-import explore from '../assets/explore.png'
+import img from '../assets/Colosseum.jpg'
 
-const PlanATrip = () => {
-  return (
-    <div className='plan' >
-      <div className="top-icons">
-        <Link to='/explore'>
-          <img src={explore} alt="" draggable='false' />
-        </Link>
-      </div>
-      <div className="top-logo">
-        <div className="content">
-          <img src={logo} alt="" draggable='false' />
-          &nbsp;
-          TripPlanner
+const Plan = () => {
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [scrollX, setScrollX] = useState(0);
+  const [mouseX, setMouseX] = useState(0);
+
+  const handleMouseMove = (event) => {
+    if (isMouseDown) {
+      const dx = mouseX - event.clientX;
+      setMouseX(event.clientX);
+      setScrollX((prevScrollX) => prevScrollX + dx);
+      document.querySelector(".scroll-container").scrollLeft += dx;
+    }
+  };
+
+  const Card = ({ img, head, desc, dist }) => {
+    return (
+      <div className='card-plan'>
+        <div className='img' >
+          <img src={img} alt="" />
         </div>
+        <h3 className='head'>{head}</h3>
+        <p className='desc'>{desc}</p>
+        <p className='dist'>{dist}</p>
       </div>
-      <Navbar page={'plan'} />
+    );
+  };
 
+  return (
+    <div
+      className="explore"
+      onMouseDown={() => setIsMouseDown(true)}
+      onMouseUp={() => setIsMouseDown(false)}
+      onMouseLeave={() => setIsMouseDown(false)}
+      onMouseMove={handleMouseMove}
+    >
+
+      <Navbar page={'explore'} />
     </div>
-  )
-}
+  );
+};
 
-export default PlanATrip
+export default Plan;
