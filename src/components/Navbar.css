@@ -1,0 +1,102 @@
+.nav-home{
+    margin: 0 auto;
+    display: block;
+    height: 19em;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    transition: 1s;
+}
+
+.nav-home .content{
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-home .content .head{
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: .7em;
+}
+
+.nav-home .content .sub-head{
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: .2em;
+}
+
+.nav-home .content .already{
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: .2em;
+    text-decoration: underline;
+}
+
+.nav-home .content .already:hover{
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-home .content div a .btn{
+    margin: 2em auto;
+    width: 15em;
+    height: 4em;
+    background-color: #fff;
+    color: #000;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.nav-home .content div   .rightarr{
+    display: inline;
+}
+
+.nav-home .content div  .rightarr img{
+    width: 1em;
+}
+
+.nav-home .content div a .btn:hover{
+    background-color: #c5c5c5;
+}
+
+.nav-explore{
+    margin: 0 auto;
+    display: block;
+    height: 10em;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    transition: 1s;
+}
+
+.nav-explore .content{
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: 90%;
+    background-color: #000;
+    color: #fff;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 30px 30px 0 0 ;
+}
+
