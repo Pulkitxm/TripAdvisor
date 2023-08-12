@@ -87,7 +87,7 @@ const Navbar = ({ page }) => {
   //sigin handlers
   const [signin_email, ChangeEmail_signin] = useState('');
   const [signin_pass, ChangePass_signin] = useState('');
-  const { logIn } = useUserAuth();
+  const { logIn, googleSignIn } = useUserAuth();
   const isFormValid_siginin = (signin_email !== '' && signin_pass !== '');
   const handleSignin = async () => {
     if (isFormValid_siginin) {
@@ -101,6 +101,18 @@ const Navbar = ({ page }) => {
       showModalError("The credentials provided are incorrectly formatted.");
     }
 
+  };
+  const handleGoogleSignIn = async (e) =>{
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/home");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+  const handleaGoogleSignIn = async (e) => {
+    e.preventDefault();
   };
 
 
@@ -137,11 +149,7 @@ const Navbar = ({ page }) => {
             </div> */}
           </div>
 
-          <Link to='/account' >
-            <div className="already">
-              Create an account
-            </div>
-          </Link>
+          
 
         </div>
       </motion.div>
@@ -201,10 +209,10 @@ const Navbar = ({ page }) => {
               </div>
             </div>
             <div className="or">or</div>
-            <div className="g-signup-btn">
+            {/* <div className="g-signup-btn" onClick={handleGoogleSignUp}>
               <div className="logo"><img src={g_logo} alt="" /></div>
               <div className="txt">Sign up with Google</div>
-            </div>
+            </div> */}
 
           </form>
 
@@ -272,7 +280,7 @@ const Navbar = ({ page }) => {
               </div>
             </div>
             <div className="or">or</div>
-            <div className="g-signup-btn">
+            <div className="g-signup-btn" onClick={handleGoogleSignIn}>
               <div className="logo"><img src={g_logo} alt="" /></div>
               <div className="txt">Sign In with Google</div>
             </div>

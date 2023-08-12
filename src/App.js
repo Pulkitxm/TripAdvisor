@@ -28,9 +28,21 @@ const App = () => {
         <UserAuthContextProvider>
           <Ham />
           <Routes>
-            <Route path="/" element={<Start />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/" element={
+                                      <ProtectedRoute> 
+                                        <Start />
+                                      </ProtectedRoute>
+                                    }/>
+            <Route path="/login" element={
+                                      <ProtectedRoute> 
+                                        <Login />
+                                      </ProtectedRoute>
+                                    }/>
+            <Route path="/signup" element={
+                                      <ProtectedRoute> 
+                                        <Signup />
+                                      </ProtectedRoute>
+                                    }/>
             {/* <Route path="/forgot" element={<Forgot />} /> */}
             <Route path="/home" element={
                                           <ProtectedRoute> 
