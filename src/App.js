@@ -16,24 +16,27 @@ import Ham from './components/Ham'
 //auth
 import Login from './Auth/Login'
 import Signup from './Auth/Signup'
+import { UserAuthContextProvider } from './context/UserAuthContext';
 // import Forgot from './Auth/Forgot'
 
 const App = () => {
   return (
     <div className='main' >
       <Router>
-        <Ham/>
-        <Routes>
-          <Route path="/" element={<Start />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          {/* <Route path="/forgot" element={<Forgot />} /> */}
-          <Route path="/home" element={<Home />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/plan" element={<PlanATrip />} />
-          <Route path="/account" element={<Account />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
+        <UserAuthContextProvider>
+          <Ham />
+          <Routes>
+            <Route path="/" element={<Start />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            {/* <Route path="/forgot" element={<Forgot />} /> */}
+            <Route path="/home" element={<Home />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/plan" element={<PlanATrip />} />
+            <Route path="/account" element={<Account />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </UserAuthContextProvider>
       </Router>
     </div>
   );

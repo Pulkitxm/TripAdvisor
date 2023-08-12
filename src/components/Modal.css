@@ -1,0 +1,7 @@
+.notification {
+  position: absolute;
+  bottom: 50%;
+  height: 10%;
+  width: 100vw;
+  background-color: #ff0000;
+}

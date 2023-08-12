@@ -2,8 +2,6 @@ import Navbar from '../components/Navbar'
 import React, { useState } from "react";
 import "./Plan.css"; // Import the CSS file
 
-import img from '../assets/Colosseum.jpg'
-
 const Plan = () => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [scrollX, setScrollX] = useState(0);
@@ -16,19 +14,6 @@ const Plan = () => {
       setScrollX((prevScrollX) => prevScrollX + dx);
       document.querySelector(".scroll-container").scrollLeft += dx;
     }
-  };
-
-  const Card = ({ img, head, desc, dist }) => {
-    return (
-      <div className='card-plan'>
-        <div className='img' >
-          <img src={img} alt="" />
-        </div>
-        <h3 className='head'>{head}</h3>
-        <p className='desc'>{desc}</p>
-        <p className='dist'>{dist}</p>
-      </div>
-    );
   };
 
   return (
