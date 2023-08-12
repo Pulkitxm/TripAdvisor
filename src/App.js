@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
+
 //pages
 import Start from './pages/Start'
 import Home from './pages/Home'
@@ -12,6 +13,7 @@ import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 import Ham from './components/Ham'
 
+import ProtectedRoute from './components/ProtectedRoute'
 
 //auth
 import Login from './Auth/Login'
@@ -30,11 +32,31 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             {/* <Route path="/forgot" element={<Forgot />} /> */}
-            <Route path="/home" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/plan" element={<PlanATrip />} />
-            <Route path="/account" element={<Account />} />
-            <Route path='*' element={<NotFound />} />
+            <Route path="/home" element={
+                                          <ProtectedRoute> 
+                                            <Home />
+                                          </ProtectedRoute>} 
+                                        />
+            <Route path="/explore" element={
+                                          <ProtectedRoute> 
+                                            <Explore />
+                                          </ProtectedRoute>} 
+                                        />
+            <Route path="/plan" element={
+                                          <ProtectedRoute> 
+                                            <PlanATrip />
+                                          </ProtectedRoute>} 
+                                        />
+            <Route path="/account" element={
+                                          <ProtectedRoute> 
+                                            <Account />
+                                          </ProtectedRoute>} 
+                                        />
+            <Route path='*' element={
+                                          <ProtectedRoute> 
+                                            <NotFound />
+                                          </ProtectedRoute>} 
+                                        />
           </Routes>
         </UserAuthContextProvider>
       </Router>

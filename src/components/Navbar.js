@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Navbar.css'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 import g_logo from '../assets/google.png'
 import { useUserAuth } from '../context/UserAuthContext'
@@ -9,15 +9,15 @@ import CustomModal from './Modal'
 const Navbar = ({ page }) => {
 
   //siguphandlers
+  const [show_siginin_Password, setShow_siginin_Password] = useState(false);
+  const [show_signupPassword, setShow_signup_Password] = useState(false);
+
   const [signup_email, ChangeEmail_signup] = useState('');
   const [signup_pass, ChangePass_signup] = useState('');
   const [signup_repass, ChangeRePass_signup] = useState('');
   const [modal_content, Change_modal_content] = useState('')
-  // const [error, Seterror] = useState('');
   const [show, setShow] = useState(false);
-
   const [show_signup_Modal, setShow_signup_Modal] = useState(false);
-
   const handle_signup_CloseModal = () => setShow_signup_Modal(false);
   const handle_signup_ShowModal = () => setShow_signup_Modal(true);
   let signup_modalBody = '';
@@ -25,13 +25,6 @@ const Navbar = ({ page }) => {
     Change_modal_content(err);
     handle_signup_ShowModal();
   };
-
-  // const showError = (err) => {
-  //   Seterror('Enter correct credentials');
-  //   setTimeout(() => {
-  //     Seterror('');
-  //   }, 3000);
-  // };
   const calculatePasswordStrength = (password) => {
     let score = 0;
     if (password.length >= 5) {
@@ -68,12 +61,12 @@ const Navbar = ({ page }) => {
         navigate('/login');
       } catch (err) {
         showModalError(err.message);
-        console.log(err);
+        // console.log(err);
       }
     } else {
       showModalError("The credentials provided are incorrectly formatted.");
     }
-    
+
   };
   const updateRemark = () => {
     const p = document.getElementById('remark');
@@ -92,19 +85,23 @@ const Navbar = ({ page }) => {
   };
 
   //sigin handlers
-  const [signin_email, ChangeEmail_sigin] = useState('');
-  const [signin_pass, ChangePass_sigin] = useState('');
-  const [signin_active, Change_Sigin_active] = useState(false);
-  const isFormValid_siginin = signin_email !== '' && signin_pass !== '';
-  const handleSigin = () => {
+  const [signin_email, ChangeEmail_signin] = useState('');
+  const [signin_pass, ChangePass_signin] = useState('');
+  const { logIn } = useUserAuth();
+  const isFormValid_siginin = (signin_email !== '' && signin_pass !== '');
+  const handleSignin = async () => {
     if (isFormValid_siginin) {
-      console.log("Email", signin_email);
-      console.log("Password", signin_pass);
+      try {
+        await logIn(signin_email, signin_pass);
+        navigate('/home');
+      } catch (err) {
+        showModalError(err.message);
+      }
     } else {
-      console.log("enter something first");
+      showModalError("The credentials provided are incorrectly formatted.");
     }
-  };
 
+  };
 
 
   if (page === 'start') {
@@ -174,11 +171,29 @@ const Navbar = ({ page }) => {
           {/* {error && <Alert variant='danger' >{error}</Alert>} */}
           <form className='signup-form'>
             <input type="text" id='Email' placeholder='Email' value={signup_email} onChange={(e) => ChangeEmail_signup(e.target.value)} />
-            <input type="password" id='Password' placeholder='Password' value={signup_pass} onChange={(e) => {
-              ChangePass_signup(e.target.value);
-              updateRemark();
-            }} />
-            <input type="password" id='Re-type-Password' placeholder='Re-Enter Password' value={signup_repass} onChange={(e) => ChangeRePass_signup(e.target.value)} />
+            <div>
+              <input type={show_signupPassword ? 'text' : 'password'} id='Password' placeholder='Password' value={signup_pass} onChange={(e) => {
+                ChangePass_signup(e.target.value);
+                updateRemark();
+              }} style={{ borderRadius: "15px 0 0 15px", width: '90%', display: 'inline' }} />
+              <p onClick={(e) => {
+                e.preventDefault(); setShow_signup_Password(!show_signupPassword)
+              }
+              }
+                style={{ borderRadius: "0 15px 15px 0", width: "10%", height: '2rem', display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}
+              >
+                {show_signupPassword ?
+                  <span style={{ transform: "scale(1.2) translateY(.3em)", userSelect: 'none', cursor: 'pointer' }} className="material-symbols-outlined">
+                    visibility
+                  </span>
+                  :
+                  <span style={{ transform: "scale(1.2) translateY(.3em)", userSelect: 'none', cursor: 'pointer' }} className="material-symbols-outlined">
+                    visibility_off
+                  </span>
+                }
+              </p>
+            </div>
+            <input type={show_signupPassword ? 'text' : 'password'} id='Re-type-Password' placeholder='Re-Enter Password' value={signup_repass} onChange={(e) => ChangeRePass_signup(e.target.value)} />
             <div className="remark-pass" style={{ textAlign: 'center' }}>Password Strength - <p id='remark' style={{ display: 'inline', color: 'red' }} >Weak</p></div>
             <div>
               <div className="btn" style={(!isFormValid_siginup) ? { backgroundColor: 'rgb(156 156 156)' } : { backgroundColor: '#fff' }} onClick={handleSignup} >
@@ -205,7 +220,7 @@ const Navbar = ({ page }) => {
   else if (page === 'signin') {
     return (
       <motion.div
-        className='nav-signin'
+        className='nav-signup'
         initial={{ transform: 'translateY(100%)' }}
         animate={{
           transform: 'translateY(-10%)',
@@ -213,29 +228,60 @@ const Navbar = ({ page }) => {
         }}
         exit={{ opacity: 0, transform: 'translateY(100%)' }}
       >
+        <CustomModal
+          show={show_signup_Modal}
+          handleClose={handle_signup_CloseModal}
+          bodyContent={modal_content}
+          Color="red"
+        />
         <div className="content">
           <div className="head">
-            Happy to have you back! <br /> Let's get you a quick login
+            Let's Start by Getiing you Signed In
           </div>
-          <form className='signin-form'>
-            <input type="text" id='Email' value={signin_email} onChange={(e) => ChangeEmail_sigin(e.target.value)} placeholder='Email' />
-            <input type="password" id='Password' value={signin_pass} onChange={(e) => ChangePass_sigin(e.target.value)} placeholder='Password' />
+          {/* {error && <Alert variant='danger' >{error}</Alert>} */}
+          <form className='signup-form'>
+            <input type="text" id='Email' placeholder='Email' value={signin_email} onChange={(e) => ChangeEmail_signin(e.target.value)} />
             <div>
-              <div className="btn" id='sigin' onClick={handleSigin} style={(!isFormValid_siginin) ? { backgroundColor: 'rgb(156 156 156)' } : { backgroundColor: '#fff' }} >
+              <input type={show_siginin_Password ? 'text' : 'password'} id='Password' placeholder='Password' value={signin_pass} onChange={(e) => {
+                ChangePass_signin(e.target.value);
+              }}
+                style={{ borderRadius: "15px 0 0 15px", width: '90%', display: 'inline' }}
+              />
+              <p onClick={(e) => {
+                e.preventDefault(); setShow_siginin_Password(!show_siginin_Password)
+              }
+              }
+                style={{ borderRadius: "0 15px 15px 0", width: "10%", height:'2rem', display: 'inline-flex',justifyContent:'center',alignItems:'center' }}
+              >
+                {show_siginin_Password ?
+                  <span style={{transform:"scale(1.2) translateY(.3em)",userSelect:'none',cursor:'pointer' }} className="material-symbols-outlined">
+                    visibility
+                  </span>
+                  :
+                  <span style={{ transform:"scale(1.2) translateY(.3em)",userSelect:'none',cursor:'pointer'}} className="material-symbols-outlined">
+                    visibility_off
+                  </span>
+                }
+              </p>
+            </div>
+
+
+            <div>
+              <div className="btn" style={(!isFormValid_siginin) ? { backgroundColor: 'rgb(156 156 156)' } : { backgroundColor: '#fff' }} onClick={handleSignin} >
                 Sign-In
               </div>
             </div>
             <div className="or">or</div>
-            <div className="g-signin-btn">
+            <div className="g-signup-btn">
               <div className="logo"><img src={g_logo} alt="" /></div>
-              <div className="txt">Sign in with Google</div>
+              <div className="txt">Sign In with Google</div>
             </div>
 
           </form>
 
           <Link to='/signup'>
             <div className="already">
-              Create a new account
+              Create a new Account?
             </div>
           </Link>
         </div>
@@ -329,6 +375,44 @@ const Navbar = ({ page }) => {
     )
   }
   else if (page === 'account') {
+    return (
+      <motion.div
+        className='nav-home'
+        initial={{ transform: 'translateY(100%)' }}
+        animate={{
+          transform: 'translateY(0)',
+
+        }}
+        exit={{ opacity: 0, transform: 'translateY(-100%)' }}
+      >
+        <div className="content">
+          <div className="search">
+            <div className="left">
+              <input type="text" placeholder='Search a place' />
+            </div>
+            <div className="right">
+              <span className="material-symbols-outlined">search</span>
+            </div>
+          </div>
+          <div className="icons">
+            <Link to={'/home'} >
+              <span className="material-symbols-outlined">home</span>
+            </Link>
+            <Link to={'/explore'} >
+              <span className="material-symbols-outlined">explore</span>
+            </Link>
+            <Link to={'/plan'} >
+              <span className="material-symbols-outlined">location_on</span>
+            </Link>
+            <Link to={'/account'} >
+              <span className="material-symbols-outlined">person</span>
+            </Link>
+          </div>
+        </div>
+      </motion.div>
+    )
+  }
+  else if (page === 'notFound') {
     return (
       <motion.div
         className='nav-home'

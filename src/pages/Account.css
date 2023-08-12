@@ -8,8 +8,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-.account .main .login{
+.account .main .logout{
     width: 150px;
     height: 70px;
     background-color: red;

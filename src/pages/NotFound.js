@@ -3,7 +3,7 @@ import React from 'react';
 import _404 from '../assets/404.gif'
 import './notfound.css'
 import { motion } from 'framer-motion'
-
+import Navbar from '../components/Navbar';
 const NotFound = () => {
   return (
     <motion.div
@@ -36,6 +36,7 @@ const NotFound = () => {
           <a href="/">Go back to the home page</a>
         </p>
       </div>
+      <Navbar page={'notFound'} />
     </motion.div>
   );
 };
