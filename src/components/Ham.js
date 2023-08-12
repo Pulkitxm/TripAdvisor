@@ -28,7 +28,7 @@ const Ham = () => {
                         const offcanvas = document.getElementById('offcanvasWithBothOptions');
                         offcanvas.classList.remove('show');
                     }} >
-                        <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">TripPlanner</h5>
+                        <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">WanderAI</h5>
                     </Link>
                     <p
                         className='close-button'

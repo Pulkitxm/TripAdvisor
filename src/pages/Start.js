@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Start.css'
 import Navbar from '../components/Navbar'
 
@@ -11,7 +11,7 @@ const Start = () => {
                 <div className="content">
                     <img src={logo} alt="" draggable='false' />
                     &nbsp;
-                    TripPlanner
+                    WanderAI
                 </div>
             </div>
             <Navbar page={'start'} />

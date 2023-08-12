@@ -51,7 +51,7 @@
     color: rgba(255, 255, 255, 1);
 }
 
-.nav-start .content div a .btn {
+.nav-start .content div  .btn {
     margin: 2em auto;
     width: 15em;
     height: 4em;
@@ -73,10 +73,279 @@
     width: 1em;
 }
 
-.nav-start .content div a .btn:hover {
+.nav-start .content div  .btn:hover {
+    background-color: #c5c5c5;
+}
+.nav-signup {
+    margin: 0 auto;
+    display: block;
+    /* height: 35em; */
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    transition: 1s;
+}
+
+.nav-signup .content {
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-signup .content .head {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: .7em;
+}
+
+.nav-signup .content .signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-signup .content form input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+    height: 2em;
+    font-size: 1.2em;
+    margin: 5px 0;
+    box-shadow: 1px 1px 5px #ffffff44;
+}
+
+.nav-signup .content form input:focus,
+.nav-signup .content form input:active {
+    box-shadow: 1px 1px 10px #ffffffb7;
+}
+
+.nav-signup .content .or {
+    text-align: center;
+}
+
+.g-signup-btn {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    width: 80%;
+    margin: 1em auto;
+    height: 3em;
+    font-size: 1.2em;
+    user-select: none;
+    cursor: pointer;
+}
+
+.g-signup-btn .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    grid-column: 1/3;
+}
+
+.g-signup-btn .logo img {
+    width: 20px;
+}
+
+.g-signup-btn .txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4285F4;
+    grid-column: 3/11;
+}
+
+.nav-signup .content .already {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: .2em;
+    text-decoration: underline;
+}
+
+.nav-signup .content .already a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-signup .content .already:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-signup .content div  .btn {
+    margin: 1em auto;
+    width: 15em;
+    height: 4em;
+    background-color: #fff;
+    color: #000;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.nav-signup .content div .rightarr {
+    display: inline;
+}
+
+.nav-signup .content div .rightarr img {
+    width: 1em;
+}
+
+.nav-signup .content div .btn:hover {
     background-color: #c5c5c5;
 }
 
+
+.nav-signin {
+    margin: 0 auto;
+    display: block;
+    /* height: 35em; */
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    transition: 1s;
+}
+
+.nav-signin .content {
+    margin: auto;
+    display: block;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 1;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2.5em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-signin .content .head {
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: .7em;
+}
+
+.nav-signin .content .signin-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-signin .content form input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 15px;
+    height: 2em;
+    font-size: 1.2em;
+    margin: 5px 0;
+    box-shadow: 1px 1px 5px #ffffff44;
+}
+
+.nav-signin .content form input:focus,
+.nav-signin .content form input:active {
+    box-shadow: 1px 1px 10px #ffffffb7;
+}
+
+.nav-signin .content .or {
+    text-align: center;
+}
+
+.g-signin-btn {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    width: 80%;
+    margin: 1em auto;
+    height: 3em;
+    font-size: 1.2em;
+    user-select: none;
+    cursor: pointer;
+}
+
+.g-signin-btn .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    grid-column: 1/3;
+}
+
+.g-signin-btn .logo img {
+    width: 20px;
+}
+
+.g-signin-btn .txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4285F4;
+    grid-column: 3/11;
+}
+
+.nav-signin .content .already {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: .2em;
+    text-decoration: underline;
+}
+
+.nav-signin .content .already a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-signin .content .already:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.nav-signin .content div  .btn {
+    margin: 1em auto;
+    width: 15em;
+    height: 4em;
+    background-color: #fff;
+    color: #000;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.nav-signin .content div .rightarr {
+    display: inline;
+}
+
+.nav-signin .content div .rightarr img {
+    width: 1em;
+}
+
+.nav-signin .content div  .btn:hover {
+    background-color: #c5c5c5;
+}
 .nav-home {
     margin: 0 auto;
     display: block;

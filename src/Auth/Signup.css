@@ -1,0 +1,39 @@
+.signup {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../assets/bg.png') no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+
+.top-logo {
+    height: 5em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.top-logo img {
+    width: 1.5em;
+}
+
+.top-logo .content {
+    display: flex;
+    align-items: center;
+    opacity: .7;
+    user-select: none;
+    cursor: pointer;
+}
+
+.top-logo .content img {
+    width: 1.5em;
+}
+
+.top-logo .content:hover {
+    opacity: 1;
+}
